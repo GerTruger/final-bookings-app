@@ -41,7 +41,7 @@ async function main() {
     }
 
     for (const amenitie of amenities) {
-        await prisma.amenity.upsert({
+        await prisma.amenitie.upsert({
             where: { id: amenitie.id },
             update: {},
             create: amenitie,
@@ -59,8 +59,8 @@ async function main() {
                 user: {
                     connect: { id: review.userId }
                 },
-                property: {
-                    connect: { id: review.propertieId }
+                propertie: {
+                    connect: { id: review.propertyId }
                 }
             }
         })
@@ -80,7 +80,7 @@ async function main() {
                 user: {
                     connect: { id: booking.userId }
                 },
-                property: {
+                propertie: {
                     connect: { id: booking.propertyId }
                 }
             },
